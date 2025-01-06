@@ -1,0 +1,93 @@
+# ======================== Elasticsearch Configuration =========================
+
+# NOTE: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what you are trying to accomplish and the consequences.
+
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+
+# ---------------------------------- Cluster -----------------------------------
+
+# Use a descriptive name for your cluster:
+# cluster.name: my-application
+
+# ------------------------------------ Node ------------------------------------
+
+# Use a descriptive name for the node:
+# node.name: node-1
+
+# Add custom attributes to the node:
+# node.attr.rack: r1
+
+# ----------------------------------- Paths ------------------------------------
+
+# Path to directory where to store the data (separate multiple locations by comma):
+path.data: "d:\\elasticsearch-8.15.2\\data"
+
+xpack.security.enabled: true
+xpack.security.enrollment.enabled: true
+xpack.security.http.ssl.enabled: false
+
+# Uncomment and configure these settings for SSL:
+# xpack.security.http.ssl:
+#   enabled: true
+#   keystore.path: certs/http.p12
+
+# xpack.security.transport.ssl:
+#   enabled: true
+#   verification_mode: certificate
+#   keystore.path: certs/transport.p12
+#   truststore.path: certs/transport.p12
+
+# cluster.initial_master_nodes: ["601063-0"]
+# http.host: 0.0.0.0
+
+# Path to log files:
+# path.logs: /path/to/logs
+
+# ----------------------------------- Memory -----------------------------------
+
+# Lock the memory on startup:
+bootstrap.memory_lock: true
+
+# Make sure that the heap size is set to about half the memory available
+# on the system and that the owner of the process is allowed to use this
+# limit.
+# Elasticsearch performs poorly when the system is swapping the memory.
+
+# ---------------------------------- Network -----------------------------------
+
+# By default, Elasticsearch is only accessible on localhost. Set a different
+# address here to expose this node on the network:
+network.host: 192.168.27.172
+
+# By default, Elasticsearch listens for HTTP traffic on the first free port it
+# finds starting at 9200. Set a specific HTTP port here:
+http.port: 9200
+
+# --------------------------------- Discovery ----------------------------------
+
+# Set discovery type for a single-node cluster:
+discovery.type: single-node
+
+# Uncomment if configuring a multi-node cluster:
+# discovery.seed_hosts: ["192.168.27.174"]
+
+# Bootstrap the cluster using an initial set of master-eligible nodes:
+# cluster.initial_master_nodes: ["601063-0"]
+
+# ----------------------------------- CORS -------------------------------------
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+http.cors.allow-methods: OPTIONS,HEAD,GET,POST,PUT,DELETE
+http.cors.allow-headers: X-Requested-With,Content-Type,Content-Length,Authorization
+
+# ---------------------------------- Various -----------------------------------
+
+# Allow wildcard deletion of indices:
+# action.destructive_requires_name: false
